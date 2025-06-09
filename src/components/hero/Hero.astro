@@ -1,0 +1,117 @@
+---
+import Avatar from "../avatar/Avatar.astro";
+import AvatarLogo from '../../assets/avatars/avatar.avif';
+---
+
+<section class="w-full space-y-4">
+  <Avatar
+    src={AvatarLogo.src}
+    alt="Christian Avatar"
+  />
+  <h1 class="text-6xl font-bold">
+    Christian Marín, <br />Software Developer.
+  </h1>
+  <p>
+    Welcome to my website. I am a passionate software developer with a strong
+    background in web development and a deep understanding of programming
+    languages and frameworks.
+  </p>
+  <p>
+    I am interested in exploring new technologies and staying up-to-date with
+    the latest trends in the industry.
+  </p>
+  <p>
+    I like to contribute open source projects and collaborate with other
+    developers to create innovative solutions. I am always looking for new
+    challenges and opportunities to grow as a developer.
+  </p>
+  <p>
+    I am excited to work on exciting projects and make a positive impact on the
+    world.
+  </p>
+
+  <div class="w-full grid-cols-1 md:grid-cols-3 grid h-48">
+    <figure
+      class="h-full w-full col-span-1 flex items-center justify-center image-switch overflow-hidden"
+    >
+    </figure>
+    <figure
+      class="h-full w-full col-span-1 hidden md:flex items-center justify-center image-switch overflow-hidden"
+    >
+    </figure>
+    <figure
+      class="h-full w-full col-span-1 hidden md:flex items-center justify-center image-switch overflow-hidden"
+    >
+    </figure>
+  </div>
+</section>
+
+<script>
+  import Logos from "../../lib/logos";
+
+  const imageContainers = document.querySelectorAll(".image-switch");
+  const images = [
+    Logos.SupabaseLogo.src,
+    Logos.SvelteLogo.src,
+    Logos.TailwindLogo.src,
+    Logos.CSS3Logo.src,
+    Logos.HTML5Logo.src,
+    Logos.GitHubLogo.src,
+    Logos.NextjsLogo.src,
+    Logos.ReactLogo.src,
+    Logos.GitLogo.src
+  ];
+
+  const transitionDuration = 800;
+  const visibleTime = 2500;
+  const initialEntryDelay = 50;
+
+  function animateImageLoop(container: HTMLElement, imageIndex: number) {
+    if (images.length === 0) return;
+
+    const imgElement = document.createElement("img");
+    imgElement.src = images[imageIndex % images.length];
+    imgElement.alt = `Animated Image ${(imageIndex % images.length) + 1}`;
+    imgElement.loading = "lazy";
+    imgElement.decoding = "async";
+    imgElement.className = "md:w-32 md:h-32 w-24 h-24 object-cover pointer-events-none col-span-1 grayscale";
+    imgElement.style.position = "absolute";
+    imgElement.style.left = "50%";
+    imgElement.style.top = "50%";
+    imgElement.style.zIndex = "10";
+    imgElement.style.transition = `opacity ${transitionDuration}ms ease-in-out, transform ${transitionDuration}ms ease-in-out, scale ${transitionDuration}ms ease-in-out`;
+
+    imgElement.style.opacity = "0";
+    imgElement.style.transform = "translate(-50%, -60%)";
+    imgElement.style.scale = "0.99";
+
+    container.appendChild(imgElement);
+
+    setTimeout(() => {
+      imgElement.style.opacity = "1";
+      imgElement.style.scale = "1";
+      imgElement.style.transform = "translate(-50%, -50%)";
+    }, initialEntryDelay);
+
+    setTimeout(
+      () => {
+        imgElement.style.opacity = "0";
+        imgElement.style.scale = "0.99";
+        imgElement.style.transform = "translate(-50%, -40%)";
+
+        setTimeout(() => {
+          if (container.contains(imgElement)) {
+            container.removeChild(imgElement);
+          }
+          animateImageLoop(container, imageIndex + 1);
+        }, transitionDuration);
+      },
+      initialEntryDelay + transitionDuration + visibleTime
+    );
+  }
+
+  imageContainers.forEach((container, index) => {
+    (container as HTMLElement).style.position = "relative";
+    animateImageLoop(container as HTMLElement, index);
+  });
+</script>

@@ -1,0 +1,9 @@
+---
+const { src, alt } = Astro.props;
+---
+
+<div>
+    <figure class="w-full h-fit flex justify-center items-center">
+        <img class="md:h-48 md:w-48 w-24 h-24 bg-transparent rounded-full" src={src} alt={alt || 'Avatar'} loading="lazy" decoding="async" />
+    </figure>
+</div>
