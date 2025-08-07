@@ -5,33 +5,57 @@ import Navbar from "../components/navbar/Navbar.astro";
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="author" content="Christian Marín" />
-		<meta name="description" content="Christian Marín ~ Portfolio" />
-		<meta name="keywords" content="Christian Marín, Portfolio, Software Developer, Web Development" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@itsdazzae" />
-		<meta name="twitter:title" content="Christian Marín ~ Portfolio" />
-		<meta name="twitter:description" content="Welcome to my portfolio. I am a passionate software developer with a strong background in web development." />
-		<meta name="twitter:image" content="/images/portfolio-preview.png" />
-		<meta property="og:title" content="Christian Marín ~ Portfolio" />
-		<meta property="og:description" content="Welcome to my portfolio. I am a passionate software developer with a strong background in web development." />
-		<meta property="og:image" content="/images/portfolio-preview.png" />
-		<meta property="og:url" content="https://christianmarin.dev" />
-		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="Christian Marín ~ Portfolio" />
-		<meta property="og:locale" content="en_US" />
-		<title>Christian Marín ~ Portfolio</title>
-	</head>
-	<body class="bg-body-bg text-body-text font-sans antialiased">
-	    <Navbar />
-		<main class="flex flex-col items-center justify-center w-full max-w-4xl mx-auto h-full py-5 md:py-20 px-5">
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Christian Marín" />
+    <meta name="description" content="Christian Marín ~ Portfolio" />
+    <meta
+      name="keywords"
+      content="Christian Marín, Portfolio, Software Developer, Web Development"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itsdazzae" />
+    <meta name="twitter:title" content="Christian Marín ~ Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Welcome to my portfolio. I am a passionate software developer with a strong background in web development."
+    />
+    <meta name="twitter:image" content="/images/portfolio-preview.png" />
+    <meta property="og:title" content="Christian Marín ~ Portfolio" />
+    <meta
+      property="og:description"
+      content="Welcome to my portfolio. I am a passionate software developer with a strong background in web development."
+    />
+    <meta property="og:image" content="/images/portfolio-preview.png" />
+    <meta property="og:url" content="https://christianmarin.dev" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Christian Marín ~ Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <title>Christian Marín ~ Portfolio</title>
+  </head>
+  <body class="bg-body-bg text-body-text font-sans antialiased">
+    <div class="min-h-1 w-full relative bg-body-bg">
+      {/* Pearl Mist Background with Top Glow */}
+      <div
+        class="fixed inset-0 z-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(226, 232, 240, 0.15), transparent 70%), #161616",
+        }}
+      >
+      </div>
+
+      {/* Your Content/Components */}
+    </div>
+    <Navbar />
+    <main
+      class="flex flex-col items-center justify-center w-full max-w-4xl mx-auto h-full py-5 md:py-20 px-5"
+    >
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>

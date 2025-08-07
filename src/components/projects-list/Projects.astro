@@ -1,25 +1,26 @@
-<section id="projects" class="relative w-full h-full flex flex-col">
-  <h2 class="text-5xl font-bold">Projects</h2>
+<section id="projects" class="relative w-full h-full flex flex-col space-y-5">
+  <h2 class="text-5xl font-bold">Personal projects</h2>
 
   <ul class="relative w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-    <li class="w-full h-52 border-b border-gray-300 cursor-pointer">
-      <div class="w-full h-full flex items-center justify-center relative z-0 project-img">
-        <p class="text-gray-100 relative z-0 text-2xl font-semibold">Pokedex</p>
-      </div>
-    </li>
-    <li class="w-full h-52 border-b border-gray-300 cursor-pointer">
-      <div class="w-full h-full flex items-center justify-center relative z-0 project-img">
-        <p class="text-gray-100 relative z-0 text-2xl font-semibold">Photography Portfolio</p>
-      </div>
-    </li>
-    <li class="w-full h-52 border-b border-gray-300 cursor-pointer">
-      <div class="w-full h-full flex items-center justify-center relative z-0 project-img">
-        <p class="text-gray-100 relative z-0 text-2xl font-semibold">Pikasso</p>
-      </div>
-    </li>
-    <li class="w-full h-52 border-b border-gray-300 cursor-pointer">
-      <div class="w-full h-full flex items-center justify-center relative z-0 project-img">
-        <p class="text-gray-100 relative z-0 text-2xl font-semibold">Pharos Market</p>
+    <li
+      class="w-full h-52 border rounded-xl hover:border-neutral-700 border-neutral-600 transition duration-300 ease-in-out cursor-pointer"
+    >
+      <div
+        class="w-full h-full flex items-start justify-start relative z-0 project-img p-4 flex-col space-y-2"
+      >
+        <div>
+          <h3 class="text-neutral-100 relative z-0 text-2xl font-semibold">
+            Pokedex
+          </h3>
+          <p class="text-neutral-400">
+            Simple pokedex app to find any pokemon from PokeAPI
+          </p>
+        </div>
+        <span class="text-neutral-400">
+          Tech Stack: 
+          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5">React</span>
+          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5">TailwindCSS</span>
+        </span>
       </div>
     </li>
   </ul>
@@ -39,7 +40,8 @@
       const image = document.createElement("img");
       image.src = images[index];
       image.alt = `Project Image ${index + 1}`;
-      image.className = "image-hover absolute w-48 h-48 object-cover opacity-50 z-10 pointer-events-none transform -translate-x-[50%] -translate-y-[50%]";
+      image.className =
+        "image-hover absolute w-48 h-48 object-cover opacity-50 z-10 pointer-events-none transform -translate-x-[50%] -translate-y-[50%]";
       image.style.zIndex = "10";
       project.appendChild(image);
     });
