@@ -1,0 +1,27 @@
+---
+import Badge from "../badge/Badge.astro";
+
+const { title, description, lang, url } = Astro.props;
+---
+
+<div
+  class="w-full h-60 border rounded-xl hover:border-neutral-700 border-neutral-600 transition duration-300 ease-in-out cursor-pointer"
+>
+  <a class="w-full h-full" href={url} target="_blank" rel="noopener noreferrer">
+    <div
+      class="w-full h-full flex items-start justify-between relative z-0 p-4 flex-col space-y-2"
+    >
+      <div>
+        <h3 class="text-neutral-100 relative z-0 text-2xl font-semibold">
+          {title}
+        </h3>
+        <p class="text-neutral-400 leading-5">
+          {description}
+        </p>
+      </div>
+      <div class="text-neutral-400 leading-6">
+        Tech Stack: {lang.map((techLang: string) => <Badge name={techLang} />)}
+      </div>
+    </div>
+  </a>
+</div>
