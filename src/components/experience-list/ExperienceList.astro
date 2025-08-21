@@ -1,98 +1,36 @@
+---
+import Card from "../card/Card.astro"
+
+const experienceList = [
+  {
+    title: 'Katavi Gaming Limited',
+    description: 'Worked on various gaming-betting projects, focusing on user experience and interface design.',
+    lang: ['Svelte', 'Angular 2', 'JavaScript'],
+    url: 'https://tbet.co.tz'
+  },
+  {
+    title: 'VediaGames',
+    description: 'Support developing and maintaining gaming applications, enhancing performance and user experience for a freelancing client.',
+    lang: ['Svelte', 'TypeScript', 'Storybook'],
+    url: 'https://vediagames.com'
+  },
+  {
+    title: 'Chicks Gold',
+    description: 'Developed and maintained a web application for an online videogames assets trading company, focusing on performance and user experience.',
+    lang: ['Svelte', 'Aurelia 1', 'Aurelia 2', 'TypeScript', 'JavaScript', 'C#'],
+    url: 'https://chicksgold.com'
+  }
+]
+---
+
 <section class="relative w-full h-full flex flex-col space-y-5">
   <h2 class="text-5xl font-bold">Professional experience</h2>
 
   <ul class="relative w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-    <a
-      class="w-full h-52 border rounded-xl hover:border-neutral-700 border-neutral-600 transition duration-300 ease-in-out cursor-pointer"
-      href="https://tbet.co.tz"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div
-        class="w-full h-full flex items-start justify-start relative z-0 p-4 flex-col space-y-2"
-      >
-        <div>
-          <h3 class="text-neutral-100 relative z-0 text-2xl font-semibold">
-            Katavi Gaming Limited (TBet)
-          </h3>
-          <p class="text-neutral-400">
-            Worked on various gaming-betting projects, focusing on user
-            experience and interface design.
-          </p>
-        </div>
-        <span class="text-neutral-400">
-          Tech Stack: <span
-            class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5"
-            >Svelte</span
-          >
-          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5"
-            >Angular 2</span
-          >
-          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700"
-            >JavaScript</span
-          >
-        </span>
-      </div>
-    </a>
-    <li
-      class="w-full h-52 border rounded-xl hover:border-neutral-700 border-neutral-600 transition duration-300 ease-in-out cursor-pointer"
-    >
-      <a
-        class="w-full h-full flex items-start justify-start relative z-0 p-4 flex-col space-y-2"
-        href="https://vediagames.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div>
-          <h3 class="text-neutral-100 relative z-0 text-2xl font-semibold">
-            Vedia Games
-          </h3>
-          <p class="text-neutral-400">
-            Support developing and maintaining gaming applications, enhancing
-            performance and user experience for a freelancing client.
-          </p>
-        </div>
-        <span class="text-neutral-400">
-          Tech Stack: <span
-            class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5"
-            >Svelte</span
-          >
-          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5"
-            >TypeScript</span
-          >
-          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700"
-            >Storybook</span
-          >
-        </span>
-      </a>
-    </li>
-    <li
-      class="w-full min-h-52 border rounded-xl hover:border-neutral-700 border-neutral-600 transition duration-300 ease-in-out cursor-pointer"
-    >
-      <a
-        class="w-full h-full flex items-start justify-start relative z-0 p-4 flex-col space-y-2"
-        href="https://chicksgold.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div>
-          <h3 class="text-neutral-100 relative z-0 text-2xl font-semibold">
-            Chicks Gold
-          </h3>
-          <p class="text-neutral-400">
-            Developed and maintained a web application for an online videogames
-            assets trading company, focusing on performance and user experience.
-            I made the blogs, glossary projects for the company websites.
-          </p>
-        </div>
-        <span class="text-neutral-400">
-          Tech Stack: 
-          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5">Svelte</span>
-          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5">TypeScript</span>
-          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5">Aurelia 2</span>
-          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5">C#</span>
-        </span>
-      </a>
-    </li>
+    {experienceList.map(experience => (
+      <li>
+        <Card title={experience.title} description={experience.description} lang={experience.lang} url={experience.url} />
+      </li>
+    ))}
   </ul>
 </section>

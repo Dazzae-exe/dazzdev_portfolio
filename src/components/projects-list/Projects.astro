@@ -1,28 +1,32 @@
+---
+import Card from "../card/Card.astro";
+
+const projects = [
+  {
+    title: "Pokedex",
+    description: "Simple pokedex app to find any pokemon from PokeAPI.",
+    lang: ["React", "TypeScript", "Tailwindcss"],
+    url: "https://pokedex.com",
+  },
+];
+---
+
 <section id="projects" class="relative w-full h-full flex flex-col space-y-5">
   <h2 class="text-5xl font-bold">Personal projects</h2>
 
   <ul class="relative w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-    <li
-      class="w-full h-52 border rounded-xl hover:border-neutral-700 border-neutral-600 transition duration-300 ease-in-out cursor-pointer"
-    >
-      <div
-        class="w-full h-full flex items-start justify-start relative z-0 project-img p-4 flex-col space-y-2"
-      >
-        <div>
-          <h3 class="text-neutral-100 relative z-0 text-2xl font-semibold">
-            Pokedex
-          </h3>
-          <p class="text-neutral-400">
-            Simple pokedex app to find any pokemon from PokeAPI
-          </p>
-        </div>
-        <span class="text-neutral-400">
-          Tech Stack: 
-          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5">React</span>
-          <span class="font-medium py-1 px-2 rounded-full bg-neutral-700 mr-0.5">TailwindCSS</span>
-        </span>
-      </div>
-    </li>
+    {
+      projects.map((project) => (
+        <li>
+          <Card
+            title={project.title}
+            description={project.description}
+            lang={project.lang}
+            url={project.url}
+          />
+        </li>
+      ))
+    }
   </ul>
 </section>
 
